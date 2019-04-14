@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--
+            配置链接数据库的内容driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///pet_hospital"
+                        userId="root"
+                        password="admin"
+        -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///smartwatch?useSSL=false"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--实体类位置-->
+        <javaModelGenerator targetPackage="com.qf.entity" targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--mapper映射文件位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!--mapper接口位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.qf.mapper"
+                             targetProject="./src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 用户权限角色 -->
+        <table tableName="address"></table>
+        <table tableName="area"></table>
+        <table tableName="pro_info_type"></table>
+        <table tableName="productorder"></table>
+        <table tableName="productappraise"></table>
+
+        <!--编写数据库文档-->
+        <table tableName="productcollection"></table>
+        <table tableName="productinfo"></table>
+        <table tableName="productpicture"></table>
+        <table tableName="productshopping"></table>
+
+        <table tableName="producttype"></table>
+        <table tableName="productclass"></table>
+        <table tableName="user"></table>
+        <table tableName="registcode"></table>
+
+
+    </context>
+</generatorConfiguration>
