@@ -1,5 +1,6 @@
 package com.qf.mapper;
 
+import com.qf.DTO.ProductpictureDTO;
 import com.qf.entity.Productpicture;
 import com.qf.entity.ProductpictureExample;
 import java.util.List;
@@ -93,4 +94,6 @@ public interface ProductpictureMapper {
      * @mbggenerated Sun Apr 14 15:07:44 CST 2019
      */
     int updateByPrimaryKey(Productpicture record);
+
+    List<ProductpictureDTO> selectByType(int type);
 }
