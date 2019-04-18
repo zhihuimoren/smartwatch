@@ -53,6 +53,5 @@
         <table tableName="user"></table>
         <table tableName="registcode"></table>
 
-
     </context>
 </generatorConfiguration>
