@@ -3,6 +3,8 @@ package com.qf.mapper;
 import com.qf.entity.Productinfo;
 import com.qf.entity.ProductinfoExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductinfoMapper {
@@ -93,4 +95,10 @@ public interface ProductinfoMapper {
      * @mbggenerated Sun Apr 14 15:07:44 CST 2019
      */
     int updateByPrimaryKey(Productinfo record);
+
+    Map selePicById(@Param("productId") int productId,@Param("pictureType") int pictureType);
+
+    Map seleProductInfo(int productId);
+
+    List<Map> seleProductVersion(int productId);
 }

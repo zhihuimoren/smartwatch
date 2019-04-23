@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @ServletComponentScan(basePackages = "com.qf.config")
-@MapperScan("com/qf/mapper")
+@MapperScan(basePackages = "com.qf.mapper")
 @SpringBootApplication
 public class SmartwatchApplication {
 

@@ -672,75 +672,13 @@ public class ProductorderExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrdernoteIsNull() {
-            addCriterion("orderNote is null");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteIsNotNull() {
-            addCriterion("orderNote is not null");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteEqualTo(String value) {
-            addCriterion("orderNote =", value, "ordernote");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteNotEqualTo(String value) {
-            addCriterion("orderNote <>", value, "ordernote");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteGreaterThan(String value) {
-            addCriterion("orderNote >", value, "ordernote");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteGreaterThanOrEqualTo(String value) {
-            addCriterion("orderNote >=", value, "ordernote");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteLessThan(String value) {
-            addCriterion("orderNote <", value, "ordernote");
-            return (Criteria) this;
-        }
 
-        public Criteria andOrdernoteLessThanOrEqualTo(String value) {
-            addCriterion("orderNote <=", value, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteLike(String value) {
-            addCriterion("orderNote like", value, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteNotLike(String value) {
-            addCriterion("orderNote not like", value, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteIn(List<String> values) {
-            addCriterion("orderNote in", values, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteNotIn(List<String> values) {
-            addCriterion("orderNote not in", values, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteBetween(String value1, String value2) {
-            addCriterion("orderNote between", value1, value2, "ordernote");
-            return (Criteria) this;
-        }
-
-        public Criteria andOrdernoteNotBetween(String value1, String value2) {
-            addCriterion("orderNote not between", value1, value2, "ordernote");
-            return (Criteria) this;
-        }
 
         public Criteria andProductidIsNull() {
             addCriterion("productId is null");

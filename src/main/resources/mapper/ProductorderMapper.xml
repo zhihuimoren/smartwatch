@@ -14,7 +14,6 @@
     <result column="orderAddress" property="orderaddress" jdbcType="VARCHAR" />
     <result column="orderStatus" property="orderstatus" jdbcType="INTEGER" />
     <result column="orderCreate" property="ordercreate" jdbcType="DATE" />
-    <result column="orderNote" property="ordernote" jdbcType="VARCHAR" />
     <result column="productId" property="productid" jdbcType="INTEGER" />
     <result column="userId" property="userid" jdbcType="INTEGER" />
   </resultMap>
@@ -93,7 +92,7 @@
       This element was generated on Sun Apr 14 15:07:44 CST 2019.
     -->
     orderId, orderNumber, buyNumber, receiver, orderAddress, orderStatus, orderCreate, 
-    orderNote, productId, userId
+     productId, userId
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.qf.entity.ProductorderExample" >
     <!--
@@ -153,11 +152,11 @@
     -->
     insert into productorder (orderId, orderNumber, buyNumber, 
       receiver, orderAddress, orderStatus, 
-      orderCreate, orderNote, productId, 
+      orderCreate, productId,
       userId)
     values (#{orderid,jdbcType=INTEGER}, #{ordernumber,jdbcType=VARCHAR}, #{buynumber,jdbcType=INTEGER}, 
       #{receiver,jdbcType=VARCHAR}, #{orderaddress,jdbcType=VARCHAR}, #{orderstatus,jdbcType=INTEGER}, 
-      #{ordercreate,jdbcType=DATE}, #{ordernote,jdbcType=VARCHAR}, #{productid,jdbcType=INTEGER}, 
+      #{ordercreate,jdbcType=DATE},  #{productid,jdbcType=INTEGER},
       #{userid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.qf.entity.Productorder" >
@@ -189,9 +188,6 @@
       <if test="ordercreate != null" >
         orderCreate,
       </if>
-      <if test="ordernote != null" >
-        orderNote,
-      </if>
       <if test="productid != null" >
         productId,
       </if>
@@ -220,9 +216,6 @@
       </if>
       <if test="ordercreate != null" >
         #{ordercreate,jdbcType=DATE},
-      </if>
-      <if test="ordernote != null" >
-        #{ordernote,jdbcType=VARCHAR},
       </if>
       <if test="productid != null" >
         #{productid,jdbcType=INTEGER},
@@ -272,9 +265,6 @@
       <if test="record.ordercreate != null" >
         orderCreate = #{record.ordercreate,jdbcType=DATE},
       </if>
-      <if test="record.ordernote != null" >
-        orderNote = #{record.ordernote,jdbcType=VARCHAR},
-      </if>
       <if test="record.productid != null" >
         productId = #{record.productid,jdbcType=INTEGER},
       </if>
@@ -300,7 +290,6 @@
       orderAddress = #{record.orderaddress,jdbcType=VARCHAR},
       orderStatus = #{record.orderstatus,jdbcType=INTEGER},
       orderCreate = #{record.ordercreate,jdbcType=DATE},
-      orderNote = #{record.ordernote,jdbcType=VARCHAR},
       productId = #{record.productid,jdbcType=INTEGER},
       userId = #{record.userid,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -333,9 +322,6 @@
       <if test="ordercreate != null" >
         orderCreate = #{ordercreate,jdbcType=DATE},
       </if>
-      <if test="ordernote != null" >
-        orderNote = #{ordernote,jdbcType=VARCHAR},
-      </if>
       <if test="productid != null" >
         productId = #{productid,jdbcType=INTEGER},
       </if>
@@ -358,7 +344,6 @@
       orderAddress = #{orderaddress,jdbcType=VARCHAR},
       orderStatus = #{orderstatus,jdbcType=INTEGER},
       orderCreate = #{ordercreate,jdbcType=DATE},
-      orderNote = #{ordernote,jdbcType=VARCHAR},
       productId = #{productid,jdbcType=INTEGER},
       userId = #{userid,jdbcType=INTEGER}
     where orderId = #{orderid,jdbcType=INTEGER}

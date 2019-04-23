@@ -3,6 +3,8 @@ package com.qf.mapper;
 import com.qf.entity.Productshopping;
 import com.qf.entity.ProductshoppingExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductshoppingMapper {
@@ -93,4 +95,6 @@ public interface ProductshoppingMapper {
      * @mbggenerated Sun Apr 14 15:07:44 CST 2019
      */
     int updateByPrimaryKey(Productshopping record);
+
+    List<Map> getcart(int userId);
 }

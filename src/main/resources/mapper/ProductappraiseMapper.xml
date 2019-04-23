@@ -315,4 +315,17 @@
       productClassId = #{productclassid,jdbcType=INTEGER}
     where appraiseId = #{appraiseid,jdbcType=INTEGER}
   </update>
+
+  <select id="seleAccGrade" parameterType="int" resultType="Map">
+    SELECT DISTINCT (SELECT COUNT(*) FROM productappraise app WHERE app.`productClassId`=1)AS totalNum,
+    (SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=1 AND app.`productClassId`=#{productClassId})AS goodNum,
+(SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=2 AND app.`productClassId`=#{productClassId})AS mediumNum,
+(SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=3 AND app.`productClassId`=#{productClassId})AS lowNum FROM productappraise app
+  </select>
+
+  <select id="seleAccess" parameterType="int" resultType="Map">
+    SELECT app.`userName`,app.`headUrl`,app.`accessGrade`,app.`productType`,app.`accessText`,app.`accessImg`,app.`accessDate` FROM productappraise app
+WHERE app.`productClassId`=#{productClassId}
+  </select>
+  
 </mapper>

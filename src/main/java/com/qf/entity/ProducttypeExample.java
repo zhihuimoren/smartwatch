@@ -264,42 +264,42 @@ public class ProducttypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypenameEqualTo(Integer value) {
+        public Criteria andTypenameEqualTo(String value) {
             addCriterion("typeName =", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameNotEqualTo(Integer value) {
+        public Criteria andTypenameNotEqualTo(String value) {
             addCriterion("typeName <>", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameGreaterThan(Integer value) {
+        public Criteria andTypenameGreaterThan(String value) {
             addCriterion("typeName >", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameGreaterThanOrEqualTo(Integer value) {
+        public Criteria andTypenameGreaterThanOrEqualTo(String value) {
             addCriterion("typeName >=", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameLessThan(Integer value) {
+        public Criteria andTypenameLessThan(String value) {
             addCriterion("typeName <", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameLessThanOrEqualTo(Integer value) {
+        public Criteria andTypenameLessThanOrEqualTo(String value) {
             addCriterion("typeName <=", value, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameIn(List<Integer> values) {
+        public Criteria andTypenameIn(List<String> values) {
             addCriterion("typeName in", values, "typename");
             return (Criteria) this;
         }
 
-        public Criteria andTypenameNotIn(List<Integer> values) {
+        public Criteria andTypenameNotIn(List<String> values) {
             addCriterion("typeName not in", values, "typename");
             return (Criteria) this;
         }
@@ -309,7 +309,7 @@ public class ProducttypeExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypenameNotBetween(Integer value1, Integer value2) {
+        public Criteria andTypenameNotBetween(String value1, String value2) {
             addCriterion("typeName not between", value1, value2, "typename");
             return (Criteria) this;
         }
