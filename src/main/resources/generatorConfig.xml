@@ -42,7 +42,6 @@
         <table tableName="pro_info_type"></table>
         <table tableName="productorder"></table>
         <table tableName="productappraise"></table>
-
         <!--编写数据库文档-->
         <table tableName="productcollection"></table>
         <table tableName="productinfo"></table>
@@ -53,7 +52,6 @@
         <table tableName="productclass"></table>
         <table tableName="user"></table>
         <table tableName="registcode"></table>
-
 
     </context>
 </generatorConfiguration>
