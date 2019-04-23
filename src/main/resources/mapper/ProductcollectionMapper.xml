@@ -253,4 +253,43 @@
       userId = #{userid,jdbcType=INTEGER}
     where collectionId = #{collectionid,jdbcType=INTEGER}
   </update>
+  <select id="findAllById" parameterType="Map" resultType="com.qf.DTD.CollectionEnity">
+
+SELECT pc.`collectionId` collectionId  ,po.`productName` productName,po.`productPrice` productPrice,pe.`pictureUrl` FROM  productcollection pc
+INNER JOIN productinfo po
+ON pc.`productId`=po.`productId`
+INNER JOIN productclass ps
+ON po.`productClassId`=ps.`productClassId`
+INNER JOIN USER us
+ON pc.`userId`=us.`userId`
+INNER JOIN productpicture pe
+ON po.`productId`=pe.`pictureId`
+WHERE us.`userId`=#{id}
+
+<if test="type!=0 and type!=''">
+  and po.`productClassId`=#{type}
+</if>
+
+
+      <if test="search!=null and search!=''">
+     AND po.`productName` LIKE CONCAT ('%',#{search},'%')
+    </if>
+  </select>
+
+
+  <select id="findCounts" resultType="Map" >
+   SELECT
+(SELECT COUNT(*) FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId`  ) a,
+(SELECT COUNT(*) FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId` WHERE ps.`productClassId`=1 ) b,
+(SELECT COUNT(*) FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId` WHERE ps.`productClassId`=2 ) c,
+(SELECT COUNT(*) FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId` WHERE ps.`productClassId`=3 ) d,
+(SELECT COUNT(*) FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId` WHERE ps.`productClassId`=4 ) e
+FROM  productcollection pc INNER JOIN productinfo po ON pc.`productId`=po.`productId` INNER JOIN productclass ps ON po.`productClassId`=ps.`productClassId`
+
+  </select>
+
+    <insert id="insertinto" parameterType="com.qf.entity.Productcollection">
+        insert into productcollection (productid,userid) values (#{productid},#{userid})
+
+    </insert>
 </mapper>

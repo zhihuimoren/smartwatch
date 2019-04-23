@@ -290,4 +290,19 @@ public class Productinfo {
     public void setProvider(String provider) {
         this.provider = provider == null ? null : provider.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Productinfo{" +
+                "productid=" + productid +
+                ", productname='" + productname + '\'' +
+                ", productmsg='" + productmsg + '\'' +
+                ", productsales=" + productsales +
+                ", productstock=" + productstock +
+                ", productprice=" + productprice +
+                ", adverturl='" + adverturl + '\'' +
+                ", productclassid=" + productclassid +
+                ", provider='" + provider + '\'' +
+                '}';
+    }
 }

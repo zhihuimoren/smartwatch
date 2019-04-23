@@ -1,8 +1,12 @@
 package com.qf.mapper;
 
+import com.qf.DTD.CollectionEnity;
 import com.qf.entity.Productcollection;
 import com.qf.entity.ProductcollectionExample;
 import java.util.List;
+import java.util.Map;
+
+import com.qf.utils.R;
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductcollectionMapper {
@@ -93,4 +97,13 @@ public interface ProductcollectionMapper {
      * @mbggenerated Thu Apr 18 11:06:59 CST 2019
      */
     int updateByPrimaryKey(Productcollection record);
+
+
+    List<CollectionEnity> findAllById(@Param("search")String search,@Param("type")int Type,@Param("id")int id);
+
+
+    Map findCounts();
+
+    int insertinto(Productcollection productcollection);
+
 }
