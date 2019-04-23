@@ -27,14 +27,12 @@ public class CollectionController {
 
         User user = (User) httpSession.getAttribute("user");
 
-        Integer userid = 1;
+        Integer userid = user.getUserid();
         int i=0;
         if(type!=null){
 
              i = Integer.parseInt(type);
         }
-
-
 
 
         R allById = collectionServer.findAllById(search, offset,limit, i, userid);
