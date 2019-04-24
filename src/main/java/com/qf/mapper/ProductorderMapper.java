@@ -3,6 +3,8 @@ package com.qf.mapper;
 import com.qf.entity.Productorder;
 import com.qf.entity.ProductorderExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface ProductorderMapper {
@@ -93,4 +95,6 @@ public interface ProductorderMapper {
      * @mbggenerated Thu Apr 18 11:06:59 CST 2019
      */
     int updateByPrimaryKey(Productorder record);
+    List<Productorder> findPoBystatus(@Param("orderstatus") Integer orderStatus,@Param("userid") Integer userId);
+    int poUpdate(int orderId);
 }

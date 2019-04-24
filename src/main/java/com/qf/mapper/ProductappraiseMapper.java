@@ -1,5 +1,6 @@
 package com.qf.mapper;
 
+import com.qf.DTD.ProductappraiseDto;
 import com.qf.entity.Productappraise;
 import com.qf.entity.ProductappraiseExample;
 import java.util.List;
@@ -99,4 +100,5 @@ public interface ProductappraiseMapper {
     Map seleAccGrade(int productClassId);
 
     List<Map> seleAccess(int productClassId);
+    int addproductAppraiseDto(ProductappraiseDto productappraise);
 }

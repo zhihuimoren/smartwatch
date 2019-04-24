@@ -1,6 +1,7 @@
 package com.qf.service.Impl;
 
 import com.qf.DTD.ProductClassInfo;
+import com.qf.entity.Productinfo;
 import com.qf.mapper.ProductinfoMapper;
 import com.qf.service.ProductInfoService;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,12 @@ public class ProductInfoImpl implements ProductInfoService {
         return linkedList;
     }
 
+    @Override
+    public List<Productinfo> list() {
 
+
+        return  productinfoMapper.findAllByid();
+    }
 
 
 }

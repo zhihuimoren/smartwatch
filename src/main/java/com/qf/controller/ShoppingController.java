@@ -1,7 +1,8 @@
 package com.qf.controller;
 
-import com.qf.service.ProductAppraiseService;
+
 import com.qf.service.ProductService;
+import com.qf.service.ProductappraiseService;
 import com.qf.utils.R;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ public class ShoppingController {
     @Resource
     private ProductService productService;
     @Resource
-    private ProductAppraiseService productAppraiseService;
+    private ProductappraiseService productAppraiseService;
 
     @RequestMapping("/shopping/findproductBuy")
     public Map findProductBuy(int productId){

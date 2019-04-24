@@ -110,4 +110,5 @@ public interface ProductinfoMapper {
     List<ProductClassInfo> ProductClassGetAll1();
     List<ProductClassInfo> ProductClassGetAll2();
     List<ProductClassInfo> ProductClassGetAll3();
+    List<Productinfo> findAllByid();
 }
