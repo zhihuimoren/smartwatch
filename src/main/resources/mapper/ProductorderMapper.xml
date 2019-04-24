@@ -348,4 +348,44 @@
       userId = #{userid,jdbcType=INTEGER}
     where orderId = #{orderid,jdbcType=INTEGER}
   </update>
+  <!--<select id="findPoBystatus" parameterType="int" resultType="com.qf.entity.Productorder">-->
+    <!--SELECT pi.productName AS pproductName,pi.productMsg  AS pproductMsg,po.orderNumber AS porderNumber,po.buyNumber AS pbuyNumber,-->
+    <!--po.orderStatus AS porderStatus,po.orderCreate AS porderCreate,po.orderAddress AS porderAddress,po.receiver AS preceiver-->
+    <!--FROM productorder po INNER JOIN-->
+    <!--productinfo PI ON po.productId = pi.productId-->
+
+
+   <!--<where>-->
+    <!--&lt;!&ndash;<if test="_parameter!=null"> AND orderStatus=#{orderstatus}</if>&ndash;&gt;-->
+    <!--<if test="_parameter!=null"> AND po.userId=#{userid}</if>-->
+  <!--</where>-->
+  <!--</select>-->
+
+  <select id="findPoBystatus" parameterType="map" resultType="com.qf.DTD.ProductOrderDtd">
+  SELECT po.*,pi.productName productName
+  FROM productorder po INNER JOIN
+  productinfo pi ON po.productId = pi.productId
+
+  <where>
+    <if test="userid!=null"> AND po.userId=#{userid}</if>
+  <if test="orderstatus!=null"> AND po.orderStatus=#{orderstatus}</if>
+
+  </where>
+  </select>
+  <!--<select id="findPoBystatus" parameterType="int" r="">-->
+  <!--SELECT orderNumber ,buyNumber ,-->
+  <!--orderStatus,orderCreate,orderAddress,receiver-->
+  <!--FROM productorder-->
+
+  <!--<where>-->
+  <!--<if test="_parameter!=null"> AND orderStatus=#{orderstatus}</if>-->
+  <!--<if test="_parameter!=null"> AND userId=#{userid}</if>-->
+  <!--</where>-->
+  <!--</select>-->
+
+  <update id="poUpdate" parameterType="int">
+    UPDATE productorder
+    SET orderStatus=4
+    WHERE orderId=#{orderId}
+  </update>
 </mapper>

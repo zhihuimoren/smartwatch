@@ -331,4 +331,9 @@
       provider = #{provider,jdbcType=VARCHAR}
     where productId = #{productid,jdbcType=INTEGER}
   </update>
+  <select id="findAllByid" resultMap="BaseResultMap">
+    SELECT productName,productMsg,productPrice,ProductStock,provider
+    FROM productinfo
+    LIMIT 0,2
+  </select>
 </mapper>

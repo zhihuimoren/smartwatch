@@ -268,4 +268,17 @@
       date = #{date,jdbcType=DATE}
     where codeId = #{codeid,jdbcType=INTEGER}
   </update>
+
+  <insert id="addCode" parameterType="com.qf.entity.Registcode">
+    INSERT INTO registcode(userPhone,codemsg,date) VALUES (#{userPhone},#{codemsg},now());
+
+  </insert>
+  <select id="getcodeByPhone" parameterType="string" resultType="com.qf.entity.Registcode">
+    SELECT userPhone,codemsg,`date`
+    FROM registcode
+    WHERE userPhone=#{userPhone}
+  </select>
+  <select id="deletecode" parameterType="string" >
+    delete FROM registcode WHERE userPhone=#{userPhone}
+  </select>
 </mapper>

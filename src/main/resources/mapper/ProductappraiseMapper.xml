@@ -13,6 +13,7 @@
     <result column="accessText" jdbcType="VARCHAR" property="accesstext" />
     <result column="userId" jdbcType="INTEGER" property="userid" />
     <result column="productId" jdbcType="INTEGER" property="productid" />
+    <!--<result column="accessQImgUrl" jdbcType="VARCHAR" property="accessqimgurl"></result>-->
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -300,4 +301,12 @@
       productId = #{productid,jdbcType=INTEGER}
     where accessId = #{accessid,jdbcType=INTEGER}
   </update>
+  <insert id="addproductAppraiseDto" parameterType="com.qf.DTD.ProductappraiseDto">
+    insert into productappraise (accessId, accessGrade, accessImg,
+      accessText, userId, productId,accessDate,productclass
+      )
+    values (#{accessid,jdbcType=INTEGER}, #{accessgrade,jdbcType=INTEGER}, #{accessimg,jdbcType=VARCHAR},
+      #{accesstext,jdbcType=VARCHAR}, #{userid,jdbcType=INTEGER}, #{productid,jdbcType=INTEGER},#{accessDate},#{productclass}
+      )
+  </insert>
 </mapper>

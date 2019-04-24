@@ -93,4 +93,7 @@ public interface UserMapper {
      * @mbggenerated Thu Apr 18 09:23:53 CST 2019
      */
     int updateByPrimaryKey(User record);
+    List<User> getUserLongByPhone(String userPhone);
+    List<String> UserLongByPhone(String userPhone);
+    int updateUserLongPassword(User user);
 }

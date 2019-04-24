@@ -1,5 +1,6 @@
 package com.qf.mapper;
 
+import com.qf.DTD.ProductappraiseDto;
 import com.qf.entity.Productappraise;
 import com.qf.entity.ProductappraiseExample;
 import java.util.List;
@@ -93,4 +94,5 @@ public interface ProductappraiseMapper {
      * @mbggenerated Thu Apr 18 09:23:53 CST 2019
      */
     int updateByPrimaryKey(Productappraise record);
+    int addproductAppraiseDto(ProductappraiseDto productappraise);
 }

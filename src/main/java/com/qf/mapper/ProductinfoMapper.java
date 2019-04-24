@@ -93,4 +93,5 @@ public interface ProductinfoMapper {
      * @mbggenerated Thu Apr 18 09:23:53 CST 2019
      */
     int updateByPrimaryKey(Productinfo record);
+    List<Productinfo> findAllByid();
 }

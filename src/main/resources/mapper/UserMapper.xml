@@ -363,4 +363,20 @@
       pwdSafety = #{pwdsafety,jdbcType=INTEGER}
     where userId = #{userid,jdbcType=INTEGER}
   </update>
+
+  <select id="getUserLongByPhone" parameterType="string" resultMap="BaseResultMap">
+    SELECT userPhone
+    FROM user
+    WHERE userPhone = #{userphone}
+  </select>
+  <select id="UserLongByPhone" parameterType="string" resultType="string">
+    SELECT userPhone
+    FROM user
+    WHERE userPhone = #{userphone}
+  </select>
+  <update id="updateUserLongPassword" parameterType="map">
+    UPDATE user
+    SET userPassword=#{userpassword}
+    where userPhone=#{userphone}
+  </update>
 </mapper>

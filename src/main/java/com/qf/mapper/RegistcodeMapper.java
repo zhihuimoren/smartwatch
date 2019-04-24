@@ -93,4 +93,7 @@ public interface RegistcodeMapper {
      * @mbggenerated Thu Apr 18 09:23:53 CST 2019
      */
     int updateByPrimaryKey(Registcode record);
+    int addCode(Registcode code);
+    Registcode getcodeByPhone(String userPhone);
+    void deletecode(String userPhone);
 }
