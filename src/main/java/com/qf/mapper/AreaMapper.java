@@ -93,4 +93,10 @@ public interface AreaMapper {
      * @mbggenerated Thu Apr 18 11:06:59 CST 2019
      */
     int updateByPrimaryKey(Area record);
+
+    List<Area> findprovince(Integer parentid);
+
+    List<Area> findcity(Integer parentid);
+
+    List<Area> findcounty(Integer parentid);
 }

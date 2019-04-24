@@ -93,4 +93,16 @@ public interface AddressMapper {
      * @mbggenerated Thu Apr 18 11:06:59 CST 2019
      */
     int updateByPrimaryKey(Address record);
+
+
+    List<Address> findByuserid(Integer userId);
+
+    //查看该用户有多少条收货地址
+    int numByUserid(Integer userId);
+
+    //修改 默认 地址为 非默认
+    int updateByisDefauit(Integer userId);
+    //修改 fei默认 地址为 默认
+    int updateByisDefauitnew(Integer addressId);
+
 }

@@ -93,4 +93,6 @@ public interface UserMapper {
      * @mbggenerated Thu Apr 18 11:06:59 CST 2019
      */
     int updateByPrimaryKey(User record);
+
+    User selectByuserName(String userName);
 }

@@ -348,4 +348,57 @@
       userId = #{userid,jdbcType=INTEGER}
     where addressId = #{addressid,jdbcType=INTEGER}
   </update>
+
+
+
+  <select id="findByuserid" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+      addressId, province, city, county, recriverPhone, recriverName, specificAddress,
+    isDefauit, userId
+    from address
+    where userId = #{userId}
+  </select>
+
+  <select id="numByUserid" resultType="int" parameterType="java.lang.Integer" >
+    select
+    count(*)
+    from address
+    where userId =  #{userid,jdbcType=INTEGER}
+  </select>
+
+  <update id="updateByisDefauit" parameterType="java.lang.Integer" >
+
+    update address
+    set
+    isDefauit = 0
+    where isDefauit=1 and userId = #{userid,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByisDefauitnew" parameterType="java.lang.Integer" >
+
+    update address
+    set
+    isDefauit = 1
+    where  addressId = #{addressid,jdbcType=INTEGER}
+  </update>
+
+  <select id="findprovince"  resultMap="BaseResultMap">
+    select  p.id , p.area_name, p.area_code, p.area_parent_id
+    from area p
+    where area_parent_id = #{parentId};
+  </select>
+
+  <select id="findcity"  resultMap="BaseResultMap">
+    select  id, area_name, area_code, area_parent_id
+    from area
+    where area_parent_id = #{parentId};
+  </select>
+
+  <select id="findcounty"  resultMap="BaseResultMap">
+    select  id, area_name, area_code, area_parent_id
+    from area
+    where area_parent_id = #{parentId};
+  </select>
+
+
 </mapper>
