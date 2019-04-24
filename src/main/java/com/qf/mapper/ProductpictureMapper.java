@@ -1,6 +1,8 @@
 package com.qf.mapper;
 
+import com.qf.DTD.ProductInfoPicture;
 import com.qf.DTO.ProductpictureDTO;
+import com.qf.entity.Productclass;
 import com.qf.entity.Productpicture;
 import com.qf.entity.ProductpictureExample;
 import java.util.List;
@@ -96,4 +98,17 @@ public interface ProductpictureMapper {
     int updateByPrimaryKey(Productpicture record);
 
     List<ProductpictureDTO> selectByType(int type);
+
+
+
+
+    List<Productpicture> findPicture();
+    //热销
+    List<ProductInfoPicture> findProductSales(int a);
+    //新品
+    List<ProductInfoPicture> findProductSales1(int a);
+    //查询id
+    List<Productclass> findId();
+    //配件
+    List<ProductInfoPicture> findFittings();
 }

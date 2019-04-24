@@ -41,4 +41,6 @@ public class ProductController {
         return productService.getFun(price,typeIds,sorter,search,pager);
     }
 
+
+
 }
