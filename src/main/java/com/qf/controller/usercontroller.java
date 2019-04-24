@@ -1,105 +1,127 @@
 package com.qf.controller;
 
+import com.google.code.kaptcha.Producer;
 
-import com.qf.entity.Address;
+import com.qf.DTD.UserDto;
 import com.qf.entity.User;
-import com.qf.service.SysUserService;
+import com.qf.service.UserService;
+import com.qf.utils.AccountUtil;
+import com.qf.utils.GetSMS;
 import com.qf.utils.R;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
 
 @RestController
-public class usercontroller {
-
+public class UserController {
     @Resource
-    private SysUserService sysUserService;
-
-
-    //个人中心 @RequestBody int userId
-    @RequestMapping("/user/userMessage")
-    public User usermessage(int userId) { //int userId
-
-        return  sysUserService.message(userId);
+    private UserService userService;
+    @Resource
+    private Producer producer;
+    @RequestMapping("/register")
+    public R register(String password, String code, String userPhone, int pwdSafety){
+        return userService.regidter(password,code,userPhone,pwdSafety);
     }
 
-    //查询登录名是否存在
-    @RequestMapping("/user/findUsername")
-    public R findusername(String userName) { //String userName
-       // String userName = "333";
-        return sysUserService.findUsername(userName);
-    }
+    @RequestMapping("/sys/login")
+    public R login(@RequestBody UserDto userLogin, HttpSession session){
+        //服务端生成的验证码
+        String code=session.getAttribute("code").toString();
+       // System.out.println(code+"dfghsdgsdfgsdfgdsf");
+        //用户输入的验证码
+        String c = userLogin.getCaptcha();
+        System.out.println(c);
+        if (code!=null&&!code.equals(c)){
+            System.out.println(!code.equals(c));
+            return R.error("验证码错误");
+        }
 
-    //更改个人信息
-    //更改登录名
-    @RequestMapping("/user/updateUser")
-    public R updateuser(@RequestBody User user) { //User user
-
-        return   sysUserService.updateuser(user);
-    }
-
-    //收货地址列表
-    @RequestMapping("/user/getAddress")
-    public R addlist(int userId) {//int userId
-
-        return sysUserService.findAll(userId);
-    }
-
-    //删除收货地址
-    @RequestMapping("/user/delAddress")
-    public R deladdress(int addressId) {//int addressId
-       // int addressId = 7;
-        return sysUserService.deladdress(addressId);
-    }
-
-    //添加收货地址
-    @RequestMapping("/user/addAddress")
-    public R addaddr(@RequestBody Address address) {//@RequestBody Address address
-
-
-        return sysUserService.addaddr(address);
-    }
-
-
-    //修改收货地址
-    @RequestMapping("/user/updateaddr")
-    public R updateaddr(@RequestBody Address address) {//@RequestBody Address address
-
-        return sysUserService.updateaddr(address);
-    }
-
-    //设置为默认收货地址
-    @RequestMapping("/user/updateisDefauif")
-    public R updateisDefauif(@RequestBody Address address) {//@RequestBody Address address
-
-        return sysUserService.defultaddr(address);
+        return userService.login(userLogin,session);
 
     }
 
-    //城市级联
-    //省份列表
-    @RequestMapping("/user/addrprovince")
-    public R addrprovince() {
-        int parenId = 0;
-        return sysUserService.addrprovince(parenId);
+    @RequestMapping("/login/phone")
+    public R longinPhone(String userPhone, String code, HttpSession session){
+
+        return userService.loginPhone(userPhone,code,session);
+
+    }
+    @RequestMapping("/captcha.jpg")
+    public void captcah(HttpServletResponse response, HttpSession session){
+        try {
+            String text= producer.createText();//生成的验证码
+            System.out.println(text);
+
+            session.setAttribute("code",text);
+            BufferedImage bufferedImage = producer.createImage(text);
+            OutputStream os = response.getOutputStream();
+            //把生成的验证码展示到客户端
+            ImageIO.write(bufferedImage,"jpg",os);
+            System.out.println(os);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    //城市列表
-    @RequestMapping("/user/addrcity")
-    public R addrcity(int parenId) {//int parenId
-       // int parenId = 110100;
-        return sysUserService.addrcity(parenId);
+
+    @RequestMapping("/regist")
+    public R code(String userPhone){
+
+        //判断手机号是否被注册
+        userService.findByPhone(userPhone);
+        //判断手机号是否正确
+        if (!AccountUtil.isMobile(userPhone)){
+            return R.error("请输入手机号");
+        }
+        //判断是否发过验证码
+        if (userService.getcodeByPhone(userPhone)!=null){
+            return R.error("已发送");
+        }
+
+        String code= GetSMS.randNum;
+        try {
+            userService.addCode(userPhone,code);
+           // R.ok().put("stats",true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return R.error(e.getMessage());
+        }
+        return R.ok();
+
     }
 
-    //区级列表
-    @RequestMapping("/user/addrcounty")
-    public R addrcounty(int parenId) {
-        //int parenId = 0;
-        return sysUserService.addrcounty(parenId);
+    @RequestMapping("/retrieve/captcha")
+    public R captcha(@RequestBody UserDto userLogin, HttpSession session){
+        String code=session.getAttribute("code")+"";
+        System.out.println(code);
+        String c = userLogin.getCaptcha();
+        if (code!=null&&!code.equalsIgnoreCase(c)){
+            return R.error("验证码错误");
+        }
+        session.setAttribute("userphone",userLogin.getUserphone());
+        return userService.captcha(userLogin);
+
     }
+
+    @RequestMapping("/retrieve/code")
+    public R code(String userPhone, String code){
+        return userService.code(userPhone,code);
+    }
+
+    @RequestMapping("/retrieve/password")
+    public R password(@RequestBody User user){
+       return userService.password(user);
+    }
+
+
 
 
 
