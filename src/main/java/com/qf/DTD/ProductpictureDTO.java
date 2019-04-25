@@ -1,4 +1,4 @@
-package com.qf.DTO;
+package com.qf.DTD;
 
 import com.qf.entity.Productpicture;
 

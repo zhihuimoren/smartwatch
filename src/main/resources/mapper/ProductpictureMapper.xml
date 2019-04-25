@@ -271,7 +271,7 @@
         WHERE pictureId = #{pictureid,jdbcType=INTEGER}
     </update>
 
-    <select id="selectByType" resultType="com.qf.DTO.ProductpictureDTO" parameterType="int">
+    <select id="selectByType" resultType="com.qf.DTD.ProductpictureDTO" parameterType="int">
         SELECT
             pp.*,
             pio.advertUrl

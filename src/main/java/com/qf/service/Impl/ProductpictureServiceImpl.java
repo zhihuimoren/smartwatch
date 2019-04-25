@@ -1,7 +1,7 @@
 package com.qf.service.Impl;
 
 import com.qf.DTD.ProductInfoPicture;
-import com.qf.DTO.ProductpictureDTO;
+import com.qf.DTD.ProductpictureDTO;
 import com.qf.entity.Productclass;
 import com.qf.entity.Productpicture;
 

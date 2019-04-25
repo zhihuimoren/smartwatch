@@ -1,6 +1,6 @@
 package com.qf.service;
 
-import com.qf.DTO.ProductpictureDTO;
+import com.qf.DTD.ProductpictureDTO;
 
 import java.util.List;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package com.qf.controller;
-import com.qf.DTO.Price;
-import com.qf.DTO.ProductpictureDTO;
+import com.qf.DTD.Price;
+import com.qf.DTD.ProductpictureDTO;
 import com.qf.service.ProductService;
 import com.qf.service.ProductTypeService;
 import com.qf.service.ProductpictureService;

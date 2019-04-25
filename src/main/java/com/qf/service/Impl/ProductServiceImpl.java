@@ -2,7 +2,7 @@ package com.qf.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.qf.DTO.Price;
+import com.qf.DTD.Price;
 import com.qf.entity.ProInfoType;
 import com.qf.entity.ProInfoTypeExample;
 import com.qf.entity.Productinfo;

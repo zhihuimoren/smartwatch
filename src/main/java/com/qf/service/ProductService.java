@@ -1,6 +1,6 @@
 package com.qf.service;
 
-import com.qf.DTO.Price;
+import com.qf.DTD.Price;
 import com.qf.utils.Pager;
 import com.qf.utils.R;
 import com.qf.utils.Sorter;
