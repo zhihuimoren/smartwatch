@@ -1,4 +1,4 @@
-package com.qf.service.impl;
+package com.qf.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;

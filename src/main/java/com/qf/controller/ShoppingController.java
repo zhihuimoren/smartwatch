@@ -4,12 +4,14 @@ package com.qf.controller;
 import com.qf.service.ProductService;
 import com.qf.service.ProductappraiseService;
 import com.qf.utils.R;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+@CrossOrigin("*")
 @RestController
 public class ShoppingController {
 

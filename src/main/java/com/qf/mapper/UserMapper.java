@@ -98,4 +98,5 @@ public interface UserMapper {
     List<User> getUserLongByPhone(String userPhone);
     List<String> UserLongByPhone(String userPhone);
     int updateUserLongPassword(User user);
+
 }

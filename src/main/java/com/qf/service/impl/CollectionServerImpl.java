@@ -1,4 +1,4 @@
-package com.qf.service.impl;
+package com.qf.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -66,21 +66,15 @@ public class CollectionServerImpl implements CollectionServer {
     @Override
     public R delete(List a) {
 
-
-
-
         ProductcollectionExample example=new ProductcollectionExample();
 
         ProductcollectionExample.Criteria criteria = example.createCriteria();
 
        criteria.andCollectionidIn(a);
 
-
         int i = productcollectionMapper.deleteByExample(example);
 
-
-
-        return R.ok();
+        return i>0? R.ok():R.error("没有数据");
     }
 
 

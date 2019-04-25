@@ -1,4 +1,4 @@
-package com.qf.service.impl;
+package com.qf.service.Impl;
 
 import com.qf.DTD.ProductappraiseDto;
 import com.qf.entity.Productappraise;

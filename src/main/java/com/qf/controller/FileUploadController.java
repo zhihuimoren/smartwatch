@@ -3,6 +3,7 @@ package com.qf.controller;
 
 import com.qf.utils.FastDFSClient;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +12,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@CrossOrigin("*")
 @Controller
 public class FileUploadController {
 

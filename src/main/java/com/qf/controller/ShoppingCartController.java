@@ -2,13 +2,14 @@ package com.qf.controller;
 
 import com.qf.service.ShoppingCartService;
 import com.qf.utils.R;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
-
+@CrossOrigin("*")
 @RestController
 public class ShoppingCartController {
 

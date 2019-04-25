@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@CrossOrigin("*")
 @RestController
 public class CollectionController {
 
@@ -65,8 +65,16 @@ public class CollectionController {
     }
 
     @RequestMapping("/sys/collection/delete")
-    public  R delete(int[] collectionIds){
+    public  R delete(int[] collectionIds,HttpSession httpSession){
 
+
+        User user = (User) httpSession.getAttribute("user");
+
+        if (user==null){
+
+
+            return R.error("请登陆用户");
+        }
 
         List aa=new ArrayList();
         for (int collectionId : collectionIds) {

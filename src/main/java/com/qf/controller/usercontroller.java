@@ -8,6 +8,7 @@ import com.qf.service.UserService;
 import com.qf.utils.AccountUtil;
 import com.qf.utils.GetSMS;
 import com.qf.utils.R;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
-
+@CrossOrigin("*")
 @RestController
 public class UserController {
     @Resource

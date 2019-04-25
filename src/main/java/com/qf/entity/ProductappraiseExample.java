@@ -524,63 +524,63 @@ public class ProductappraiseExample {
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeIsNull() {
-            addCriterion("probuctType is null");
+        public Criteria andProducttypeIsNull() {
+            addCriterion("productType is null");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeIsNotNull() {
-            addCriterion("probuctType is not null");
+        public Criteria andproducttypeIsNotNull() {
+            addCriterion("productType is not null");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeEqualTo(Integer value) {
-            addCriterion("probuctType =", value, "probucttype");
+        public Criteria andproducttypeEqualTo(Integer value) {
+            addCriterion("productType =", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeNotEqualTo(Integer value) {
-            addCriterion("probuctType <>", value, "probucttype");
+        public Criteria andproducttypeNotEqualTo(Integer value) {
+            addCriterion("productType <>", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeGreaterThan(Integer value) {
-            addCriterion("probuctType >", value, "probucttype");
+        public Criteria andproducttypeGreaterThan(Integer value) {
+            addCriterion("productType >", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("probuctType >=", value, "probucttype");
+        public Criteria andproducttypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("productType >=", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeLessThan(Integer value) {
-            addCriterion("probuctType <", value, "probucttype");
+        public Criteria andproducttypeLessThan(Integer value) {
+            addCriterion("productType <", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeLessThanOrEqualTo(Integer value) {
-            addCriterion("probuctType <=", value, "probucttype");
+        public Criteria andproducttypeLessThanOrEqualTo(Integer value) {
+            addCriterion("productType <=", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeIn(List<Integer> values) {
-            addCriterion("probuctType in", values, "probucttype");
+        public Criteria andproducttypeIn(List<Integer> values) {
+            addCriterion("productType in", values, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeNotIn(List<Integer> values) {
-            addCriterion("probuctType not in", values, "probucttype");
+        public Criteria andproducttypeNotIn(List<Integer> values) {
+            addCriterion("productType not in", values, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeBetween(Integer value1, Integer value2) {
-            addCriterion("probuctType between", value1, value2, "probucttype");
+        public Criteria andproducttypeBetween(Integer value1, Integer value2) {
+            addCriterion("productType between", value1, value2, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andProbucttypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("probuctType not between", value1, value2, "probucttype");
+        public Criteria andproducttypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("productType not between", value1, value2, "producttype");
             return (Criteria) this;
         }
 
