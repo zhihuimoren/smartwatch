@@ -2,7 +2,7 @@ package com.qf.controller;
 
 
 import com.qf.service.ProductService;
-import com.qf.service.ProductappraiseService;
+import com.qf.service.ProductappraisesService;
 import com.qf.utils.R;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class ShoppingController {
     @Resource
     private ProductService productService;
     @Resource
-    private ProductappraiseService productAppraiseService;
+    private ProductappraisesService productAppraiseService;
 
     @RequestMapping("/shopping/findproductBuy")
     public Map findProductBuy(int productId){

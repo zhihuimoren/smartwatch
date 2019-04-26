@@ -1,20 +1,33 @@
 package com.qf.service.Impl;
 
+import com.qf.DTD.ProductappraiseDto;
+import com.qf.entity.User;
 import com.qf.mapper.ProductappraiseMapper;
-import com.qf.service.ProductAppraiseService;
+import com.qf.service.ProductappraisesService;
+import com.qf.utils.R;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Map;
 
 @Service
-public class ProductAppraiseServiceImpl implements ProductAppraiseService {
-
+public class ProductappraisesServiceImpl implements ProductappraisesService {
     @Resource
     private ProductappraiseMapper productappraiseMapper;
+
+    @Override
+    public R inser(ProductappraiseDto productappraise, HttpSession session) {
+        User user = (User) session.getAttribute("user");
+        String username=user.getUsername();
+        productappraise.setUsername(username);
+        int i = productappraiseMapper.addproductAppraiseDto(productappraise);
+
+        return i>0?R.ok():R.error();
+    }
 
     @Override
     public Map getAccGrade(int productClassId) {
