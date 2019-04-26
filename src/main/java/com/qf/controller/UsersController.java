@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 @CrossOrigin("*")
 @RestController
-public class UserController {
+public class UsersController {
     @Resource
     private UserService userService;
     @Resource
@@ -121,8 +121,6 @@ public class UserController {
     public R password(@RequestBody User user){
        return userService.password(user);
     }
-
-
 
 
 
