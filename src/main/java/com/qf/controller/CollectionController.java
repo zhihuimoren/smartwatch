@@ -23,17 +23,13 @@ public class CollectionController {
 
     @RequestMapping("/sys/collection/findAll")
     public R findAll(String search, @RequestParam(defaultValue = "1") int offset, @RequestParam(defaultValue = "10") int limit, String type, HttpSession httpSession) {
-
-
         User user = (User) httpSession.getAttribute("user");
-
         Integer userid = user.getUserid();
         int i=0;
         if(type!=null){
 
              i = Integer.parseInt(type);
         }
-
 
         R allById = collectionServer.findAllById(search, offset,limit, i, userid);
 
@@ -65,7 +61,7 @@ public class CollectionController {
     }
 
     @RequestMapping("/sys/collection/delete")
-    public  R delete(int[] collectionIds,HttpSession httpSession){
+    public  R delete(Integer[] collectionIds,HttpSession httpSession){
 
 
         User user = (User) httpSession.getAttribute("user");

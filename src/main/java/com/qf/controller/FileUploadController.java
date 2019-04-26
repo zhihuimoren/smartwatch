@@ -29,7 +29,7 @@ public class FileUploadController {
             FastDFSClient client = new FastDFSClient("clent.conf");
             /**
              * 参数一：图片内容
-             * 参数二：后缀
+             * 参数：后缀
              */
             String paths[] = client.uploadFile(b,suffix);
             StringBuffer sb = new StringBuffer();

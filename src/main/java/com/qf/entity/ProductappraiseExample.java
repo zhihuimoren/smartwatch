@@ -534,52 +534,52 @@ public class ProductappraiseExample {
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeEqualTo(Integer value) {
+        public Criteria andproducttypeEqualTo(String value) {
             addCriterion("productType =", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeNotEqualTo(Integer value) {
+        public Criteria andproducttypeNotEqualTo(String value) {
             addCriterion("productType <>", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeGreaterThan(Integer value) {
+        public Criteria andproducttypeGreaterThan(String value) {
             addCriterion("productType >", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andproducttypeGreaterThanOrEqualTo(String value) {
             addCriterion("productType >=", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeLessThan(Integer value) {
+        public Criteria andproducttypeLessThan(String value) {
             addCriterion("productType <", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeLessThanOrEqualTo(Integer value) {
+        public Criteria andproducttypeLessThanOrEqualTo(String value) {
             addCriterion("productType <=", value, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeIn(List<Integer> values) {
+        public Criteria andproducttypeIn(List<String> values) {
             addCriterion("productType in", values, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeNotIn(List<Integer> values) {
+        public Criteria andproducttypeNotIn(List<String> values) {
             addCriterion("productType not in", values, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeBetween(Integer value1, Integer value2) {
+        public Criteria andproducttypeBetween(String value1, Integer value2) {
             addCriterion("productType between", value1, value2, "producttype");
             return (Criteria) this;
         }
 
-        public Criteria andproducttypeNotBetween(Integer value1, Integer value2) {
+        public Criteria andproducttypeNotBetween(String value1, Integer value2) {
             addCriterion("productType not between", value1, value2, "producttype");
             return (Criteria) this;
         }

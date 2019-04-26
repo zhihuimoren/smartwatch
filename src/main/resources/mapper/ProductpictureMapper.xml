@@ -316,7 +316,7 @@
     </select>
 
     <!--新品-->
-    <select id="findProductSales1" parameterType="int" resultType="Map">
+    <select id="findProductSales1" parameterType="Integer" resultType="Map">
         SELECT
             pc.productName,
             pc.productMsg,

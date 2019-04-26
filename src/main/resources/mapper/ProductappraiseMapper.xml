@@ -12,7 +12,7 @@
     <result column="headurl" jdbcType="VARCHAR" property="headurl" />
     <result column="accessGrade" jdbcType="INTEGER" property="accessgrade" />
     <result column="accessImg" jdbcType="VARCHAR" property="accessimg" />
-    <result column="productType" jdbcType="INTEGER" property="producttype" />
+    <result column="productType" jdbcType="VARCHAR" property="producttype" />
     <result column="accessText" jdbcType="VARCHAR" property="accesstext" />
     <result column="productclassid" jdbcType="INTEGER" property="productclassid" />
   </resultMap>
@@ -152,7 +152,7 @@
       accessGrade, accessImg, productType,
       accessText, productclassid)
     values (#{appraiseid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{headurl,jdbcType=VARCHAR},
-      #{accessgrade,jdbcType=INTEGER}, #{accessimg,jdbcType=VARCHAR}, #{producttype,jdbcType=INTEGER},
+      #{accessgrade,jdbcType=INTEGER}, #{accessimg,jdbcType=VARCHAR}, #{producttype,jdbcType=VARCHAR},
       #{accesstext,jdbcType=VARCHAR}, #{productclassid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.qf.entity.Productappraise">
@@ -205,7 +205,7 @@
         #{accessimg,jdbcType=VARCHAR},
       </if>
       <if test="producttype != null">
-        #{producttype,jdbcType=INTEGER},
+        #{producttype,jdbcType=VARCHAR},
       </if>
       <if test="accesstext != null">
         #{accesstext,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
         accessImg = #{record.accessimg,jdbcType=VARCHAR},
       </if>
       <if test="record.producttype != null">
-        productType = #{record.producttype,jdbcType=INTEGER},
+        productType = #{record.producttype,jdbcType=VARCHAR},
       </if>
       <if test="record.accesstext != null">
         accessText = #{record.accesstext,jdbcType=VARCHAR},
@@ -275,7 +275,7 @@
       headurl = #{record.headurl,jdbcType=VARCHAR},
       accessGrade = #{record.accessgrade,jdbcType=INTEGER},
       accessImg = #{record.accessimg,jdbcType=VARCHAR},
-      productType = #{record.producttype,jdbcType=INTEGER},
+      productType = #{record.producttype,jdbcType=VARCHAR},
       accessText = #{record.accesstext,jdbcType=VARCHAR},
       productclassid = #{record.productclassid,jdbcType=INTEGER}
     <if test="_parameter != null">
@@ -303,7 +303,7 @@
         accessImg = #{accessimg,jdbcType=VARCHAR},
       </if>
       <if test="producttype != null">
-        productType = #{producttype,jdbcType=INTEGER},
+        productType = #{producttype,jdbcType=VARCHAR},
       </if>
       <if test="accesstext != null">
         accessText = #{accesstext,jdbcType=VARCHAR},
@@ -325,20 +325,20 @@
       headurl = #{headurl,jdbcType=VARCHAR},
       accessGrade = #{accessgrade,jdbcType=INTEGER},
       accessImg = #{accessimg,jdbcType=VARCHAR},
-      productType = #{producttype,jdbcType=INTEGER},
+      productType = #{producttype,jdbcType=VARCHAR},
       accessText = #{accesstext,jdbcType=VARCHAR},
       productclassid = #{productclassid,jdbcType=INTEGER}
     where appraiseId = #{appraiseid,jdbcType=INTEGER}
   </update>
 
-  <select id="seleAccGrade" parameterType="int" resultType="Map">
+  <select id="seleAccGrade" parameterType="Integer" resultType="Map">
     SELECT DISTINCT (SELECT COUNT(*) FROM productappraise app WHERE app.`productClassId`=1)AS totalNum,
     (SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=1 AND app.`productClassId`=#{productClassId})AS goodNum,
 (SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=2 AND app.`productClassId`=#{productClassId})AS mediumNum,
 (SELECT COUNT(*) FROM productappraise app WHERE app.`accessGrade`=3 AND app.`productClassId`=#{productClassId})AS lowNum FROM productappraise app
   </select>
 
-  <select id="seleAccess" parameterType="int" resultType="Map">
+  <select id="seleAccess" parameterType="Integer" resultType="Map">
     SELECT app.`userName`,app.`headUrl`,app.`accessGrade`,app.`productType`,app.`accessText`,app.`accessImg`,app.`accessDate` FROM productappraise app
 WHERE app.`productClassId`=#{productClassId}
   </select>

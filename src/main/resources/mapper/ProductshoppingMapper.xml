@@ -268,7 +268,7 @@
       userId = #{userid,jdbcType=INTEGER}
     where shoppingId = #{shoppingid,jdbcType=INTEGER}
   </update>
-  <select id="getcart" resultType="Map" parameterType="int">
+  <select id="getcart" resultType="Map" parameterType="Integer">
     SELECT pros.productId,pro.productName,pro.productMsg,pro.productPrice,pros.shoppingNumber,prop.pictureUrl FROM productshopping pros INNER JOIN productinfo pro ON pros.productId=pro.productId
 INNER JOIN productpicture prop ON pros.productId=prop.productId WHERE pros.userId=#{userId}
   </select>

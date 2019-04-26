@@ -383,7 +383,7 @@
   <!--</where>-->
   <!--</select>-->
 
-  <update id="poUpdate" parameterType="int">
+  <update id="poUpdate" parameterType="Integer">
     UPDATE productorder
     SET orderStatus=4
     WHERE orderId=#{orderId}

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 
 @RestController
@@ -111,6 +112,15 @@ public class SysUserController {
     public R addrcounty(int parenid) {
         //int parenId = 0;
         return sysUserService.addrcounty(parenid);
+    }
+
+    @RequestMapping("/user/out")
+    public R outcount(HttpSession session){
+
+        session.invalidate();
+
+        return R.ok("已退出登陆");
+
     }
 
 
