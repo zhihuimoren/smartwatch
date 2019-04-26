@@ -8,6 +8,7 @@ import com.qf.service.SysUserService;
 import com.qf.utils.R;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
-
+@CrossOrigin("*")
 @RestController
 public class SysUserController {
 
